@@ -1,0 +1,16 @@
+{
+  "entries": [
+    "./components/moben-button/moben-button.js",
+    "./components/moben-card/moben-card.js",
+    "./components/moben-field/moben-field.js",
+    "./components/moben-list/moben-list.js",
+    "./components/my-component/my-component.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.12.2",
+    "typescriptVersion": "3.8.3"
+  },
+  "collections": [],
+  "bundles": []
+}

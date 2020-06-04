@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+input {
+  width: 30vw;
+  margin: 2vw;
+  height: 4vw;
+  border: none;
+  border-radius: 1vw;
+  border: solid 5px rgb(68, 67, 67);
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 20px #bebebe, 
+  inset -5px -5px 20px #ffffff;
+  padding: 10px 50px;
+  color: rgb(68, 67, 67);
+  font-family: 'Helvitica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 1.5vw;
+}
