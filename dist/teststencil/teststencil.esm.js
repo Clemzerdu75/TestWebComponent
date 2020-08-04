@@ -1,7 +1,1 @@
-import { p as patchBrowser, b as bootstrapLazy } from './index-c9ff436a.js';
-import { g as globalScripts } from './app-globals-0f993ce5.js';
-
-patchBrowser().then(options => {
-  globalScripts();
-  return bootstrapLazy([["moben-list",[[1,"moben-list",{"name":[1],"arrayData":[32]}]]],["animation-test",[[0,"animation-test"]]],["moben-button",[[1,"moben-button",{"status":[32]}]]],["moben-field",[[1,"moben-field",{"type":[1],"name":[1],"placeholder":[1],"inputValue":[32]}]]],["my-component",[[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]],["moben-card",[[1,"moben-card"]]]], options);
-});
+import{p as a,b as e}from"./p-bcc1a8ac.js";a().then(a=>e([["p-3cba8c6e",[[1,"moben-list",{name:[1],arrayData:[32]}]]],["p-3af38d3d",[[0,"animation-test"]]],["p-ee2dae86",[[1,"moben-button",{status:[32]}]]],["p-6d439316",[[1,"moben-field",{type:[1],name:[1],placeholder:[1],inputValue:[32]}]]],["p-388c8cde",[[1,"my-component",{first:[1],middle:[1],last:[1]}]]],["p-3cf7b4e8",[[1,"moben-card"]]]],a));
