@@ -1,0 +1,1 @@
+System.register(["./p-ba995f53.system.js"],(function(){"use strict";var t,e;return{setters:[function(n){t=n.p;e=n.b}],execute:function(){t().then((function(t){return e([["p-9baace5e.system",[[1,"mr-profil-button"],[1,"mr-little-button"]]]],t)}))}}}));

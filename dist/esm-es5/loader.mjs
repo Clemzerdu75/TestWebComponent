@@ -1,4 +1,4 @@
-import { a as patchEsm, b as bootstrapLazy } from './index-e6727c95.js';
+import { a as patchEsm, b as bootstrapLazy } from './index-80c1fa74.js';
 var defineCustomElements = function (win, options) {
     if (typeof window === 'undefined')
         return Promise.resolve();

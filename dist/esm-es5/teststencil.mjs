@@ -1,4 +1,4 @@
-import { p as patchBrowser, b as bootstrapLazy } from './index-e6727c95.js';
+import { p as patchBrowser, b as bootstrapLazy } from './index-80c1fa74.js';
 patchBrowser().then(function (options) {
     return bootstrapLazy([["mr-little-button_2", [[1, "mr-profil-button"], [1, "mr-little-button"]]]], options);
 });
