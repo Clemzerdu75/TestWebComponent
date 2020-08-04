@@ -20,6 +20,8 @@ export namespace Components {
     interface MobenList {
         "name": string;
     }
+    interface MrSimpleButton {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -66,6 +68,12 @@ declare global {
         prototype: HTMLMobenListElement;
         new (): HTMLMobenListElement;
     };
+    interface HTMLMrSimpleButtonElement extends Components.MrSimpleButton, HTMLStencilElement {
+    }
+    var HTMLMrSimpleButtonElement: {
+        prototype: HTMLMrSimpleButtonElement;
+        new (): HTMLMrSimpleButtonElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -78,6 +86,7 @@ declare global {
         "moben-card": HTMLMobenCardElement;
         "moben-field": HTMLMobenFieldElement;
         "moben-list": HTMLMobenListElement;
+        "mr-simple-button": HTMLMrSimpleButtonElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -97,6 +106,8 @@ declare namespace LocalJSX {
     }
     interface MobenList {
         "name"?: string;
+    }
+    interface MrSimpleButton {
     }
     interface MyComponent {
         /**
@@ -118,6 +129,7 @@ declare namespace LocalJSX {
         "moben-card": MobenCard;
         "moben-field": MobenField;
         "moben-list": MobenList;
+        "mr-simple-button": MrSimpleButton;
         "my-component": MyComponent;
     }
 }
@@ -130,6 +142,7 @@ declare module "@stencil/core" {
             "moben-card": LocalJSX.MobenCard & JSXBase.HTMLAttributes<HTMLMobenCardElement>;
             "moben-field": LocalJSX.MobenField & JSXBase.HTMLAttributes<HTMLMobenFieldElement>;
             "moben-list": LocalJSX.MobenList & JSXBase.HTMLAttributes<HTMLMobenListElement>;
+            "mr-simple-button": LocalJSX.MrSimpleButton & JSXBase.HTMLAttributes<HTMLMrSimpleButtonElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

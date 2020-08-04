@@ -1,6 +1,7 @@
 {
   "entries": [
     "./components/animation-test/animation-test.js",
+    "./components/buttons/mr-simple-button/mr-simple-button.js",
     "./components/moben-button/moben-button.js",
     "./components/moben-card/moben-card.js",
     "./components/moben-field/moben-field.js",
