@@ -6,15 +6,14 @@ input {
   width: 30vw;
   margin: 2vw;
   height: 4vw;
-  border: none;
+  outline: none;
   border-radius: 1vw;
-  border: solid 5px rgb(68, 67, 67);
+  border: solid 5px white;
   background: #e0e0e0;
-  box-shadow: inset 5px 5px 20px #bebebe, 
-  inset -5px -5px 20px #ffffff;
+  box-shadow: 5px 5px 8px #cccecf, -5px -5px 8px #ffffff, inset 5px 5px 8px #cccecf, inset -5px -5px 8px #ffffff;
   padding: 10px 50px;
   color: rgb(68, 67, 67);
-  font-family: 'Helvitica Neue', sans-serif;
+  font-family: "Helvitica Neue", sans-serif;
   font-weight: bold;
   font-size: 1.5vw;
 }

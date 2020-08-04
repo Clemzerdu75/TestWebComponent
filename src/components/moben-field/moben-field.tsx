@@ -1,11 +1,11 @@
-import { Component,  h, Prop, EventEmitter, Event, State } from '@stencil/core';
+import { Component, h, Prop, EventEmitter, Event, State } from "@stencil/core";
 
 @Component({
-  tag: 'moben-field',
-  styleUrl: 'moben-field.css',
+  tag: "moben-field",
+  styleUrl: "moben-field.css",
   shadow: true,
 })
-export class MobenInput  {
+export class MobenInput {
   @State() inputValue: string = "";
 
   @Prop() type: string = "text";
@@ -18,13 +18,13 @@ export class MobenInput  {
     this.inputValue = event.target.value;
     this.inputChange.emit({
       name: this.name,
-      value: this.inputValue
+      value: this.inputValue,
     });
-  }
+  };
   render() {
     return (
       <input
-        type={this.type} 
+        type={this.type}
         name={this.name}
         value={this.inputValue}
         placeholder={this.placeholder}

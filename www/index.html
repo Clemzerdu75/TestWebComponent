@@ -1,3 +1,10 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <link rel="modulepreload" href="/build/p-d835b7ff.js"><link rel="modulepreload" href="/build/p-ed19b3c0.entry.js"><script type="module" data-resources-url="/build/" data-stencil-namespace="teststencil">import{p as e,b as a}from"/build/p-d835b7ff.js";e().then(e=>a([["p-ed19b3c0",[[1,"moben-list",{name:[1],arrayData:[32]}],[1,"moben-button",{status:[32]}],[1,"moben-field",{type:[1],name:[1],placeholder:[1],inputValue:[32]}],[1,"my-component",{first:[1],middle:[1],last:[1]}],[1,"moben-card"]]]],e));</script> <script nomodule="" src="/build/teststencil.js"></script> <style>body {
-    background: #e0e0e0;
-  }</style></head> <body> <my-component first="Clément"></my-component> <moben-button></moben-button> <moben-field name="LastName" placeholder="Last Name"></moben-field> <moben-list name="[{&quot;name&quot;: &quot;Cat&quot;, &quot;value&quot;: &quot;Meow&quot;}, {&quot;name&quot;: &quot;Dog&quot;, &quot;value&quot;: &quot;Woof&quot;}]"></moben-list> </body></html>
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <script type="module" src="/build/teststencil.esm.js" data-stencil></script> <script nomodule="" src="/build/teststencil.js" data-stencil></script> <style>body {
+      background: #ebedef;
+    }</style></head> <body> <moben-field name="LastName" placeholder="Last Name" state="disable"></moben-field> <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+  if (registration) {
+    registration.unregister().then(function() { location.reload(true) });
+  }
+  });
+}</script></body></html>

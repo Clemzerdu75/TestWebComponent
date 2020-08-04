@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AnimationTest {
+    }
     interface MobenButton {
     }
     interface MobenCard {
@@ -34,6 +36,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLAnimationTestElement extends Components.AnimationTest, HTMLStencilElement {
+    }
+    var HTMLAnimationTestElement: {
+        prototype: HTMLAnimationTestElement;
+        new (): HTMLAnimationTestElement;
+    };
     interface HTMLMobenButtonElement extends Components.MobenButton, HTMLStencilElement {
     }
     var HTMLMobenButtonElement: {
@@ -65,6 +73,7 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "animation-test": HTMLAnimationTestElement;
         "moben-button": HTMLMobenButtonElement;
         "moben-card": HTMLMobenCardElement;
         "moben-field": HTMLMobenFieldElement;
@@ -73,6 +82,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface AnimationTest {
+    }
     interface MobenButton {
         "onBloublou"?: (event: CustomEvent<any>) => void;
     }
@@ -102,6 +113,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "animation-test": AnimationTest;
         "moben-button": MobenButton;
         "moben-card": MobenCard;
         "moben-field": MobenField;
@@ -113,6 +125,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "animation-test": LocalJSX.AnimationTest & JSXBase.HTMLAttributes<HTMLAnimationTestElement>;
             "moben-button": LocalJSX.MobenButton & JSXBase.HTMLAttributes<HTMLMobenButtonElement>;
             "moben-card": LocalJSX.MobenCard & JSXBase.HTMLAttributes<HTMLMobenCardElement>;
             "moben-field": LocalJSX.MobenField & JSXBase.HTMLAttributes<HTMLMobenFieldElement>;

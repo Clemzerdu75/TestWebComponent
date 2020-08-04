@@ -635,6 +635,7 @@ export declare namespace JSXBase {
     interface SlotAttributes {
         name?: string;
         slot?: string;
+        onSlotchange?: (event: Event) => void;
     }
     interface AnchorHTMLAttributes<T> extends HTMLAttributes<T> {
         download?: any;
@@ -696,6 +697,7 @@ export declare namespace JSXBase {
     }
     interface DetailsHTMLAttributes<T> extends HTMLAttributes<T> {
         open?: boolean;
+        onToggle?: (event: Event) => void;
     }
     interface DelHTMLAttributes<T> extends HTMLAttributes<T> {
         cite?: string;
@@ -811,7 +813,6 @@ export declare namespace JSXBase {
         formtarget?: string;
         height?: number | string;
         indeterminate?: boolean;
-        inputmode?: string;
         list?: string;
         max?: number | string;
         maxLength?: number;
@@ -861,6 +862,7 @@ export declare namespace JSXBase {
         value?: string | string[] | number;
     }
     interface LinkHTMLAttributes<T> extends HTMLAttributes<T> {
+        as?: string;
         href?: string;
         hrefLang?: string;
         hreflang?: string;
@@ -1082,8 +1084,7 @@ export declare namespace JSXBase {
         hidden?: boolean;
         id?: string;
         lang?: string;
-        spellCheck?: boolean;
-        spellcheck?: boolean | string;
+        spellcheck?: 'true' | 'false' | any;
         style?: {
             [key: string]: string | undefined;
         };
@@ -1092,6 +1093,8 @@ export declare namespace JSXBase {
         title?: string;
         inputMode?: string;
         inputmode?: string;
+        enterKeyHint?: string;
+        enterkeyhint?: string;
         is?: string;
         radioGroup?: string;
         radiogroup?: string;
@@ -1229,6 +1232,7 @@ export declare namespace JSXBase {
         'hanging'?: number | string;
         'horiz-adv-x'?: number | string;
         'horiz-origin-x'?: number | string;
+        'href'?: string;
         'ideographic'?: number | string;
         'image-rendering'?: number | string;
         'in2'?: number | string;
@@ -1390,6 +1394,7 @@ export declare namespace JSXBase {
         ref?: (elm?: T) => void;
         slot?: string;
         part?: string;
+        exportparts?: string;
         onCopy?: (event: ClipboardEvent) => void;
         onCopyCapture?: (event: ClipboardEvent) => void;
         onCut?: (event: ClipboardEvent) => void;
@@ -1404,6 +1409,10 @@ export declare namespace JSXBase {
         onCompositionUpdateCapture?: (event: CompositionEvent) => void;
         onFocus?: (event: FocusEvent) => void;
         onFocusCapture?: (event: FocusEvent) => void;
+        onFocusIn?: (event: FocusEvent) => void;
+        onFocusInCapture?: (event: FocusEvent) => void;
+        onFocusOut?: (event: FocusEvent) => void;
+        onFocusOutCapture?: (event: FocusEvent) => void;
         onBlur?: (event: FocusEvent) => void;
         onBlurCapture?: (event: FocusEvent) => void;
         onChange?: (event: Event) => void;
