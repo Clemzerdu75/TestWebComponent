@@ -1,5 +1,16 @@
 import { Component, h, Event, EventEmitter } from "@stencil/core";
 
+/* 
+
+This component is first of all a link component, which drive users to certain part of the website:
+There are 4 links inside you can access by the "buttonToggle" event.
+The 4 links can be found and seperated by the event.detail value:
+  - Link to profil Page has the value "Profil"
+  - Link to help has the value "Help" 
+  - Link to log out has the value "LogOut"
+
+*/
+
 @Component({
   tag: "mr-profil-button",
   styleUrl: "mr-profil-button.scss",
@@ -7,18 +18,27 @@ import { Component, h, Event, EventEmitter } from "@stencil/core";
   shadow: true,
 })
 export class MrProfilButton {
+  /* Event handling: The event buttonToggle is created and handleClick will be call by button to emit the event */
   @Event() buttonToggle: EventEmitter;
 
   private handleClick(name) {
+    /* The name property is set in the button onClick to differenciate the different links */
     this.buttonToggle.emit(name);
   }
+
   render() {
     return (
       <div class="Wrapper">
+        {/* Main Button (what you see when the component is unused) */}
         <div class="MainButtonWrapper">
           <h2>CF</h2>
         </div>
+
+        {/* Secondary buttons (which appear when you hover the main button) contain the link to user profil, help and log out */}
         <div class="OtherButtonWrapper">
+          {/* All of this button are "little-button" web component you can find in the lib, they takes svg as slot to show their usage */}
+
+          {/* Profil Button */}
           <mr-little-button class="Profil" onClick={() => this.handleClick("Profil")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,6 +57,7 @@ export class MrProfilButton {
             </svg>
           </mr-little-button>
 
+          {/* Help Button */}
           <mr-little-button class="Help" onClick={() => this.handleClick("Help")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,6 +76,7 @@ export class MrProfilButton {
             </svg>
           </mr-little-button>
 
+          {/* Logout Button */}
           <mr-little-button class="LogOut" onClick={() => this.handleClick("LogOut")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
