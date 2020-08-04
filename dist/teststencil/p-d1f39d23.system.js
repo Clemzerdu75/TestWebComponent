@@ -1,0 +1,1 @@
+System.register(["./p-2f208ff7.system.js"],(function(){"use strict";var t,e;return{setters:[function(n){t=n.p;e=n.b}],execute:function(){t().then((function(t){return e([["p-7032d50d.system",[[1,"mr-profil-button"],[1,"mr-little-button"]]]],t)}))}}}));
