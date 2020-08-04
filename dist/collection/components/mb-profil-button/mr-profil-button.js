@@ -16,7 +16,6 @@ export class MrProfilButton {
                     h("img", { src: getAssetPath(`./assets/log-out.svg`), alt: "logOut" })))));
     }
     static get is() { return "mr-profil-button"; }
-    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["mr-profil-button.scss"]
     }; }
