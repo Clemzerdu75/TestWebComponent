@@ -1,1 +1,0 @@
-import{r as s,h as t,g as r}from"./p-bcc1a8ac.js";class a{constructor(t){s(this,t)}render(){return t("div",{class:"nice_anim"})}get el(){return r(this)}}a.style=":host{display:block}";export{a as animation_test}

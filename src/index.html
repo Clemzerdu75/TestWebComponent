@@ -7,15 +7,23 @@
 
     <script type="module" src="/build/teststencil.esm.js"></script>
     <script nomodule src="/build/teststencil.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <style>
     body {
       background: #f3f3f3;
+      font-family: "Open Sans", "Sergoe UI", "Helvetica Neue", sans-serif;
+      display: flex;
+      justify-content: flex-end;
     }
   </style>
+  <!-- <script>
+    window.addEventListener("buttonToggle", (ev) => console.log(ev));
+  </script> -->
   <body>
-    <mr-simple-button style="width: 100px; height: 100px;">
-      <img src="activity.svg" />
-    </mr-simple-button>
+    <mr-profil-button></mr-profil-button>
   </body>
 </html>

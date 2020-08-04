@@ -1,1 +1,0 @@
-import{r as e,h as o}from"./p-bcc1a8ac.js";class t{constructor(o){e(this,o)}render(){return o("h1",null,"Web Component")}}t.style=":host{display:block}h1{font-family:'Helvetica Neue', sans-serif;font-size:8vw;color:rgba(0,0,0,.8);margin:0 auto;text-align:center}";export{t as my_component}

@@ -6,144 +6,46 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface AnimationTest {
+    interface MrLittleButton {
     }
-    interface MobenButton {
-    }
-    interface MobenCard {
-    }
-    interface MobenField {
-        "name": string;
-        "placeholder": string;
-        "type": string;
-    }
-    interface MobenList {
-        "name": string;
-    }
-    interface MrSimpleButton {
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface MrProfilButton {
     }
 }
 declare global {
-    interface HTMLAnimationTestElement extends Components.AnimationTest, HTMLStencilElement {
+    interface HTMLMrLittleButtonElement extends Components.MrLittleButton, HTMLStencilElement {
     }
-    var HTMLAnimationTestElement: {
-        prototype: HTMLAnimationTestElement;
-        new (): HTMLAnimationTestElement;
+    var HTMLMrLittleButtonElement: {
+        prototype: HTMLMrLittleButtonElement;
+        new (): HTMLMrLittleButtonElement;
     };
-    interface HTMLMobenButtonElement extends Components.MobenButton, HTMLStencilElement {
+    interface HTMLMrProfilButtonElement extends Components.MrProfilButton, HTMLStencilElement {
     }
-    var HTMLMobenButtonElement: {
-        prototype: HTMLMobenButtonElement;
-        new (): HTMLMobenButtonElement;
-    };
-    interface HTMLMobenCardElement extends Components.MobenCard, HTMLStencilElement {
-    }
-    var HTMLMobenCardElement: {
-        prototype: HTMLMobenCardElement;
-        new (): HTMLMobenCardElement;
-    };
-    interface HTMLMobenFieldElement extends Components.MobenField, HTMLStencilElement {
-    }
-    var HTMLMobenFieldElement: {
-        prototype: HTMLMobenFieldElement;
-        new (): HTMLMobenFieldElement;
-    };
-    interface HTMLMobenListElement extends Components.MobenList, HTMLStencilElement {
-    }
-    var HTMLMobenListElement: {
-        prototype: HTMLMobenListElement;
-        new (): HTMLMobenListElement;
-    };
-    interface HTMLMrSimpleButtonElement extends Components.MrSimpleButton, HTMLStencilElement {
-    }
-    var HTMLMrSimpleButtonElement: {
-        prototype: HTMLMrSimpleButtonElement;
-        new (): HTMLMrSimpleButtonElement;
-    };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLMrProfilButtonElement: {
+        prototype: HTMLMrProfilButtonElement;
+        new (): HTMLMrProfilButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "animation-test": HTMLAnimationTestElement;
-        "moben-button": HTMLMobenButtonElement;
-        "moben-card": HTMLMobenCardElement;
-        "moben-field": HTMLMobenFieldElement;
-        "moben-list": HTMLMobenListElement;
-        "mr-simple-button": HTMLMrSimpleButtonElement;
-        "my-component": HTMLMyComponentElement;
+        "mr-little-button": HTMLMrLittleButtonElement;
+        "mr-profil-button": HTMLMrProfilButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface AnimationTest {
+    interface MrLittleButton {
     }
-    interface MobenButton {
-        "onBloublou"?: (event: CustomEvent<any>) => void;
-    }
-    interface MobenCard {
-    }
-    interface MobenField {
-        "name"?: string;
-        "onInputChange"?: (event: CustomEvent<any>) => void;
-        "placeholder"?: string;
-        "type"?: string;
-    }
-    interface MobenList {
-        "name"?: string;
-    }
-    interface MrSimpleButton {
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface MrProfilButton {
+        "onButtonToggle"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
-        "animation-test": AnimationTest;
-        "moben-button": MobenButton;
-        "moben-card": MobenCard;
-        "moben-field": MobenField;
-        "moben-list": MobenList;
-        "mr-simple-button": MrSimpleButton;
-        "my-component": MyComponent;
+        "mr-little-button": MrLittleButton;
+        "mr-profil-button": MrProfilButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "animation-test": LocalJSX.AnimationTest & JSXBase.HTMLAttributes<HTMLAnimationTestElement>;
-            "moben-button": LocalJSX.MobenButton & JSXBase.HTMLAttributes<HTMLMobenButtonElement>;
-            "moben-card": LocalJSX.MobenCard & JSXBase.HTMLAttributes<HTMLMobenCardElement>;
-            "moben-field": LocalJSX.MobenField & JSXBase.HTMLAttributes<HTMLMobenFieldElement>;
-            "moben-list": LocalJSX.MobenList & JSXBase.HTMLAttributes<HTMLMobenListElement>;
-            "mr-simple-button": LocalJSX.MrSimpleButton & JSXBase.HTMLAttributes<HTMLMrSimpleButtonElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "mr-little-button": LocalJSX.MrLittleButton & JSXBase.HTMLAttributes<HTMLMrLittleButtonElement>;
+            "mr-profil-button": LocalJSX.MrProfilButton & JSXBase.HTMLAttributes<HTMLMrProfilButtonElement>;
         }
     }
 }
