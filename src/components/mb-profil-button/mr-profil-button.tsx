@@ -4,7 +4,7 @@ import { Component, h, getAssetPath, Event, EventEmitter } from "@stencil/core";
   tag: "mr-profil-button",
   styleUrl: "mr-profil-button.scss",
   assetsDirs: ["assets"],
-  // shadow: true,
+  shadow: true,
 })
 export class MrProfilButton {
   @Event() buttonToggle: EventEmitter;

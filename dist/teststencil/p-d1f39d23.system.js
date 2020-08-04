@@ -1,1 +1,1 @@
-System.register(["./p-2f208ff7.system.js"],(function(){"use strict";var t,e;return{setters:[function(n){t=n.p;e=n.b}],execute:function(){t().then((function(t){return e([["p-3d5c0de9.system",[[0,"mr-profil-button"],[1,"mr-little-button"]]]],t)}))}}}));
+System.register(["./p-2f208ff7.system.js"],(function(){"use strict";var t,e;return{setters:[function(n){t=n.p;e=n.b}],execute:function(){t().then((function(t){return e([["p-3d5c0de9.system",[[1,"mr-profil-button"],[1,"mr-little-button"]]]],t)}))}}}));

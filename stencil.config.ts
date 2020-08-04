@@ -9,13 +9,15 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
+      copy: [{ src: "assets", dest: "build/assets" }],
     },
     {
       type: "docs-readme",
     },
     {
       type: "www",
-      serviceWorker: null, // disable service workers
+      serviceWorker: null,
+      copy: [{ src: "assets", dest: "build/assets" }], // disable service workers
     },
   ],
 };

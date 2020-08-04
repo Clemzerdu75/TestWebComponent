@@ -3,7 +3,7 @@ var defineCustomElements = function (win, options) {
     if (typeof window === 'undefined')
         return Promise.resolve();
     return patchEsm().then(function () {
-        return bootstrapLazy([["mr-little-button_2", [[0, "mr-profil-button"], [1, "mr-little-button"]]]], options);
+        return bootstrapLazy([["mr-little-button_2", [[1, "mr-profil-button"], [1, "mr-little-button"]]]], options);
     });
 };
 export { defineCustomElements };
