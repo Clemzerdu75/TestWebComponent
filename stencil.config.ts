@@ -14,10 +14,6 @@ export const config: Config = {
     {
       type: "docs-readme",
     },
-    {
-      type: "www",
-      serviceWorker: null,
-      copy: [{ src: "assets", dest: "build/assets" }], // disable service workers
-    },
+    { type: "www", copy: [{ src: "assets", dest: "build/assets" }] },
   ],
 };
