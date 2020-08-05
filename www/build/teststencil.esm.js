@@ -1,1 +1,1 @@
-import{p as t,b as o}from"./p-db7c63d4.js";t().then(t=>o([["p-710468de",[[1,"mr-profil-button"],[1,"mr-little-button"]]]],t));
+import{p as e,b as t}from"./p-4ad53612.js";e().then(e=>t([["p-4e836e2f",[[1,"mr-profil-button"],[1,"mr-little-button",null,[[9,"resize","handleResize"]]]]]],e));

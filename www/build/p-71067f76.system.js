@@ -1,0 +1,1 @@
+System.register(["./p-ec5f3b4f.system.js"],(function(){"use strict";var t,e;return{setters:[function(n){t=n.p;e=n.b}],execute:function(){t().then((function(t){return e([["p-778c7112.system",[[1,"mr-profil-button"],[1,"mr-little-button",null,[[9,"resize","handleResize"]]]]]],t)}))}}}));

@@ -1,4 +1,4 @@
-import { Component, h } from "@stencil/core";
+import { Component, h, Listen } from "@stencil/core";
 
 // Simple as f***
 @Component({
@@ -8,16 +8,19 @@ import { Component, h } from "@stencil/core";
 })
 export class MrLittleButton {
   wrapper!: HTMLElement;
+
+  @Listen("resize", { target: "window" })
+  handleResize() {
+    this.wrapper.style.border = `solid ${this.wrapper.offsetWidth * 0.1}px #f3f3f3`;
+  }
+
   componentDidLoad() {
-    this.wrapper.style.border = ` solid ${this.wrapper.offsetWidth * 0.1}px #f3f3f3`;
-    setTimeout(() => {
-      this.wrapper.style.transition = " 0.2s ease-in-out";
-    }, 50);
+    this.wrapper.style.border = `solid ${this.wrapper.offsetWidth * 0.1}px #f3f3f3`;
   }
 
   render() {
     return (
-      <div class="Wrapper" ref={(el) => (this.wrapper = el as HTMLInputElement)}>
+      <div class="Wrapper" ref={(el) => (this.wrapper = el as HTMLElement)}>
         <slot></slot>
       </div>
     );

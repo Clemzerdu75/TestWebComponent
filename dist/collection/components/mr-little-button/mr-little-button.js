@@ -1,11 +1,11 @@
-import { Component, h } from "@stencil/core";
+import { Component, h, Listen } from "@stencil/core";
 // Simple as f***
 export class MrLittleButton {
+    handleResize() {
+        this.wrapper.style.border = `solid ${this.wrapper.offsetWidth * 0.1}px #f3f3f3`;
+    }
     componentDidLoad() {
-        this.wrapper.style.border = ` solid ${this.wrapper.offsetWidth * 0.1}px #f3f3f3`;
-        setTimeout(() => {
-            this.wrapper.style.transition = " 0.2s ease-in-out";
-        }, 50);
+        this.wrapper.style.border = `solid ${this.wrapper.offsetWidth * 0.1}px #f3f3f3`;
     }
     render() {
         return (h("div", { class: "Wrapper", ref: (el) => (this.wrapper = el) },
@@ -19,4 +19,11 @@ export class MrLittleButton {
     static get styleUrls() { return {
         "$": ["mr-little-button.css"]
     }; }
+    static get listeners() { return [{
+            "name": "resize",
+            "method": "handleResize",
+            "target": "window",
+            "capture": false,
+            "passive": true
+        }]; }
 }

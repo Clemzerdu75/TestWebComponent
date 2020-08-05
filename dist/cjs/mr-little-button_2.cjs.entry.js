@@ -2,20 +2,20 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-0250cd63.js');
+const index = require('./index-6a45a913.js');
 
-const mrLittleButtonCss = ":host{display:block;width:35px;height:35px}.Wrapper{position:relative;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%;border-radius:50%;background:linear-gradient(145deg, #dedada, #ffffff);-webkit-box-shadow:2px 2px 5px rgba(0, 0, 0, 0.15);box-shadow:2px 2px 5px rgba(0, 0, 0, 0.15);}.Wrapper:active{-webkit-box-shadow:1px 1px 2.5px rgba(0, 0, 0, 0.05);box-shadow:1px 1px 2.5px rgba(0, 0, 0, 0.05);-webkit-transform:scale(0.9) !important;transform:scale(0.9) !important;-webkit-transition:0.1s ease-in-out;transition:0.1s ease-in-out}.Wrapper:hover{-webkit-box-shadow:2px 2px 10px rgba(0, 0, 0, 0.1);box-shadow:2px 2px 10px rgba(0, 0, 0, 0.1);-webkit-transform:scale(1.05);transform:scale(1.05)}::slotted(img){width:60%}";
+const mrLittleButtonCss = ":host{display:block;width:35px;height:35px}.Wrapper{position:relative;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%;border-radius:50%;background:linear-gradient(145deg, #dedada, #ffffff);-webkit-box-shadow:2px 2px 10px rgba(0, 0, 0, 0.1);box-shadow:2px 2px 10px rgba(0, 0, 0, 0.1);-webkit-transition:-webkit-transform 0.2s ease-in-out;transition:-webkit-transform 0.2s ease-in-out;transition:transform 0.2s ease-in-out;transition:transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;}.Wrapper:hover{-webkit-box-shadow:2px 2px 15px rgba(0, 0, 0, 0.075);box-shadow:2px 2px 15px rgba(0, 0, 0, 0.075);-webkit-transform:scale(1.02);transform:scale(1.02)}.Wrapper:active{-webkit-box-shadow:1px 1px 5px rgba(0, 0, 0, 0.15);box-shadow:1px 1px 5px rgba(0, 0, 0, 0.15);-webkit-transform:scale(0.9) !important;transform:scale(0.9) !important;-webkit-transition:0.1s ease-in-out;transition:0.1s ease-in-out}::slotted(img){width:60%}";
 
 // Simple as f***
 class MrLittleButton {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
     }
+    handleResize() {
+        this.wrapper.style.border = `solid ${this.wrapper.offsetWidth * 0.1}px #f3f3f3`;
+    }
     componentDidLoad() {
-        this.wrapper.style.border = ` solid ${this.wrapper.offsetWidth * 0.1}px #f3f3f3`;
-        setTimeout(() => {
-            this.wrapper.style.transition = " 0.2s ease-in-out";
-        }, 50);
+        this.wrapper.style.border = `solid ${this.wrapper.offsetWidth * 0.1}px #f3f3f3`;
     }
     render() {
         return (index.h("div", { class: "Wrapper", ref: (el) => (this.wrapper = el) }, index.h("slot", null)));

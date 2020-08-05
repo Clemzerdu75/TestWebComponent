@@ -1,24 +1,3 @@
-'use strict';
-
-function _interopNamespace(e) {
-  if (e && e.__esModule) { return e; } else {
-    var n = {};
-    if (e) {
-      Object.keys(e).forEach(function (k) {
-        var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(n, k, d.get ? d : {
-          enumerable: true,
-          get: function () {
-            return e[k];
-          }
-        });
-      });
-    }
-    n['default'] = e;
-    return n;
-  }
-}
-
 const NAMESPACE = 'teststencil';
 
 let scopeId;
@@ -51,6 +30,35 @@ const supportsConstructibleStylesheets =  /*@__PURE__*/ (() => {
         return false;
     })()
     ;
+const addHostEventListeners = (elm, hostRef, listeners, attachParentListeners) => {
+    if ( listeners) {
+        listeners.map(([flags, name, method]) => {
+            const target =  getHostListenerTarget(elm, flags) ;
+            const handler = hostListenerProxy(hostRef, method);
+            const opts = hostListenerOpts(flags);
+            plt.ael(target, name, handler, opts);
+            (hostRef.$rmListeners$ = hostRef.$rmListeners$ || []).push(() => plt.rel(target, name, handler, opts));
+        });
+    }
+};
+const hostListenerProxy = (hostRef, methodName) => (ev) => {
+    {
+        if (hostRef.$flags$ & 256 /* isListenReady */) {
+            // instance is ready, let's call it's member method for this event
+            hostRef.$lazyInstance$[methodName](ev);
+        }
+        else {
+            (hostRef.$queuedListeners$ = hostRef.$queuedListeners$ || []).push([methodName, ev]);
+        }
+    }
+};
+const getHostListenerTarget = (elm, flags) => {
+    if ( flags & 8 /* TargetWindow */)
+        return win;
+    return elm;
+};
+// prettier-ignore
+const hostListenerOpts = (flags) =>  (flags & 2 /* Capture */) !== 0;
 const HYDRATED_CSS = '{visibility:hidden}.hydrated{visibility:inherit}';
 const createTime = (fnName, tagName = '') => {
     {
@@ -807,6 +815,15 @@ const dispatchHooks = (hostRef, isInitialLoad) => {
     const endSchedule = createTime('scheduleUpdate', hostRef.$cmpMeta$.$tagName$);
     const instance =  hostRef.$lazyInstance$ ;
     let promise;
+    if (isInitialLoad) {
+        {
+            hostRef.$flags$ |= 256 /* isListenReady */;
+            if (hostRef.$queuedListeners$) {
+                hostRef.$queuedListeners$.map(([methodName, event]) => safeCall(instance, methodName, event));
+                hostRef.$queuedListeners$ = null;
+            }
+        }
+    }
     endSchedule();
     return then(promise, () => updateComponent(hostRef, instance, isInitialLoad));
 };
@@ -987,7 +1004,7 @@ const initializeComponent = async (elm, hostRef, cmpMeta, hmrVersionId, Cstr) =>
             // this component has styles but we haven't registered them yet
             let style = Cstr.style;
             if ( cmpMeta.$flags$ & 8 /* needsShadowDomShim */) {
-                style = await Promise.resolve().then(function () { return require('./shadow-css-11ab7f6b.js'); }).then(m => m.scopeCss(style, scopeId, false));
+                style = await import('./shadow-css-7f9c6860.js').then(m => m.scopeCss(style, scopeId, false));
             }
             registerStyle(scopeId, style, !!(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */));
             endRegisterStyles();
@@ -1050,6 +1067,12 @@ const connectedCallback = (elm) => {
                 nextTick(() => initializeComponent(elm, hostRef, cmpMeta));
             }
         }
+        else {
+            // not the first time this has connected
+            // reattach any event listeners to the host
+            // since they would have been removed when disconnected
+            addHostEventListeners(elm, hostRef, cmpMeta.$listeners$);
+        }
         endConnected();
     }
 };
@@ -1067,6 +1090,12 @@ const setContentReference = (elm) => {
 const disconnectedCallback = (elm) => {
     if ((plt.$flags$ & 1 /* isTmpDisconnected */) === 0) {
         const hostRef = getHostRef(elm);
+        {
+            if (hostRef.$rmListeners$) {
+                hostRef.$rmListeners$.map(rmListener => rmListener());
+                hostRef.$rmListeners$ = undefined;
+            }
+        }
         // clear CSS var-shim tracking
         if ( plt.$cssShim$) {
             plt.$cssShim$.removeHost(elm);
@@ -1095,6 +1124,9 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
         };
         {
             cmpMeta.$members$ = compactMeta[2];
+        }
+        {
+            cmpMeta.$listeners$ = compactMeta[3];
         }
         if ( !supportsShadow && cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
             cmpMeta.$flags$ |= 8 /* needsShadowDomShim */;
@@ -1183,6 +1215,7 @@ const registerHost = (elm, cmpMeta) => {
         elm['s-p'] = [];
         elm['s-rc'] = [];
     }
+    addHostEventListeners(elm, hostRef, cmpMeta.$listeners$);
     return hostRefs.set(elm, hostRef);
 };
 const isMemberInElement = (elm, memberName) => memberName in elm;
@@ -1196,11 +1229,11 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     if (module) {
         return module[exportName];
     }
-    return Promise.resolve().then(function () { return _interopNamespace(require(
+    return import(
     /* webpackInclude: /\.entry\.js$/ */
     /* webpackExclude: /\.system\.entry\.js$/ */
     /* webpackMode: "lazy" */
-    `./${bundleId}.entry.js${ ''}`)); }).then(importedModule => {
+    `./${bundleId}.entry.js${ ''}`).then(importedModule => {
         {
             cmpModules.set(bundleId, importedModule);
         }
@@ -1254,7 +1287,7 @@ const patchEsm = () => {
     // @ts-ignore
     if ( !(CSS && CSS.supports && CSS.supports('color', 'var(--c)'))) {
         // @ts-ignore
-        return Promise.resolve().then(function () { return require(/* webpackChunkName: "polyfills-css-shim" */ './css-shim-73a19dab.js'); }).then(() => {
+        return import(/* webpackChunkName: "polyfills-css-shim" */ './css-shim-8a9bfe22.js').then(() => {
             if ((plt.$cssShim$ = win.__cssshim)) {
                 return plt.$cssShim$.i();
             }
@@ -1297,7 +1330,7 @@ const patchBrowser = () => {
         if ( !win.customElements) {
             // module support, but no custom elements support (Old Edge)
             // @ts-ignore
-            return Promise.resolve().then(function () { return require(/* webpackChunkName: "polyfills-dom" */ './dom-ba4d3125.js'); }).then(() => opts);
+            return import(/* webpackChunkName: "polyfills-dom" */ './dom-24a54a40.js').then(() => opts);
         }
     }
     return promiseResolve(opts);
@@ -1338,9 +1371,4 @@ const patchDynamicImport = (base, orgScriptElm) => {
     }
 };
 
-exports.bootstrapLazy = bootstrapLazy;
-exports.createEvent = createEvent;
-exports.h = h;
-exports.patchBrowser = patchBrowser;
-exports.patchEsm = patchEsm;
-exports.registerInstance = registerInstance;
+export { patchEsm as a, bootstrapLazy as b, createEvent as c, h, patchBrowser as p, registerInstance as r };

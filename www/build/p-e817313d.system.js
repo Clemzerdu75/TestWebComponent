@@ -1,1 +1,0 @@
-System.register(["./p-729639de.system.js"],(function(){"use strict";var t,e;return{setters:[function(n){t=n.p;e=n.b}],execute:function(){t().then((function(t){return e([["p-e1ea3553.system",[[1,"mr-profil-button"],[1,"mr-little-button"]]]],t)}))}}}));
