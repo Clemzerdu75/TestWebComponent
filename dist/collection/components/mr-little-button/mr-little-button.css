@@ -8,7 +8,6 @@
     III. Slot Handling
 
  ================================ */
-
 /* --- Host --- */
 :host {
   display: block;
@@ -27,19 +26,17 @@
   border-radius: 50%;
   background: linear-gradient(145deg, #dedada, #ffffff);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
-
   /* -- Active State -- */
-  &:active {
-    box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.05);
-    transform: scale(0.9) !important;
-    transition: 0.1s ease-in-out;
-  }
-
   /* -- Hover State -- */
-  &:hover {
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
-  }
+}
+.Wrapper:active {
+  box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.05);
+  transform: scale(0.9) !important;
+  transition: 0.1s ease-in-out;
+}
+.Wrapper:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
 /* ---Slot Handling --- */

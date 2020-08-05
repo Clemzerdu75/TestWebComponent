@@ -1,13 +1,21 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <script type="module" src="/build/teststencil.esm.js" data-stencil></script> <script nomodule="" src="/build/teststencil.js" data-stencil></script> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"> <style>body {
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <link rel="modulepreload" href="/build/p-710468de.entry.js"><link rel="modulepreload" href="/build/p-db7c63d4.js"><script type="module" data-stencil data-resources-url="/build/" data-stencil-namespace="teststencil">import{p as t,b as o}from"/build/p-db7c63d4.js";t().then(t=>o([["p-710468de",[[1,"mr-profil-button"],[1,"mr-little-button"]]]],t));</script> <script nomodule="" src="/build/teststencil.js" data-stencil></script> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"> <style>body {
       background: #f3f3f3;
       font-family: "Open Sans", "Sergoe UI", "Helvetica Neue", sans-serif;
       display: flex;
       justify-content: flex-end;
-    }</style><script>window.addEventListener("buttonToggle", (ev) => console.log(ev));</script></head> <body> <mr-profil-button></mr-profil-button> <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  // auto-unregister service worker during dev mode
-  navigator.serviceWorker.getRegistration().then(function(registration) {
-  if (registration) {
-    registration.unregister().then(function() { location.reload(true) });
-  }
+    }</style><script>window.addEventListener("buttonToggle", (ev) => console.log(ev));</script></head> <body> <div style="width: 33vw; border: solid 1px red;"> <mr-profil-button></mr-profil-button> <mr-little-button style="width: 120px; height: 120px;"></mr-little-button> </div> <script data-build="2020-08-05T09:06:15">if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function() {
+  navigator.serviceWorker.register('/sw.js')
+    .then(function(reg) {
+    reg.onupdatefound = function() {
+      var installingWorker = reg.installing;
+      installingWorker.onstatechange = function() {
+      if (installingWorker.state === 'installed') {
+        window.dispatchEvent(new Event('swUpdate'))
+      }
+      }
+    }
+    })
+    .catch(function(err) { console.error('service worker error', err) });
   });
 }</script></body></html>
