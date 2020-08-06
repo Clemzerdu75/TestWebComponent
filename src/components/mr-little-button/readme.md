@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `levitate` | `levitate` |             | `boolean` | `false` |
+| Property | Attribute | Description | Type      | Default |
+| -------- | --------- | ----------- | --------- | ------- |
+| `anchor` | `anchor`  |             | `boolean` | `false` |
 
 
 ## Dependencies
