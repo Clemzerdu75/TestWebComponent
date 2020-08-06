@@ -2,12 +2,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-6a45a913.js');
+const index = require('./index-b03c9d64.js');
 
 const defineCustomElements = (win, options) => {
   if (typeof window === 'undefined') return Promise.resolve();
   return index.patchEsm().then(() => {
-  return index.bootstrapLazy([["mr-little-button_2.cjs",[[1,"mr-profil-button"],[1,"mr-little-button",null,[[9,"resize","handleResize"]]]]]], options);
+  return index.bootstrapLazy([["mr-little-button_2.cjs",[[1,"mr-profil-button"],[1,"mr-little-button",{"levitate":[4]},[[9,"resize","handleResize"]]]]]], options);
   });
 };
 
