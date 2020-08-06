@@ -5,6 +5,7 @@
     II. Global Wrapper
       1. Active State
       2. Hover State
+      3. Anchor Prop
     III. Slot Handling
 
  ================================ */
@@ -14,20 +15,22 @@
   display: block;
   width: 35px;
   height: 35px;
+  background: transparent;
 }
 
 /* --- Global Wrapper --- */
-.Wrapper {
+.LittleButtonWrapperWC {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background: linear-gradient(145deg, #e9e6e6, #ffffff);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 
   /* -- Hover State -- */
   &:hover {
@@ -37,10 +40,11 @@
   /* -- Active State -- */
   &:active {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
-    transform: scale(0.93) !important;
+    transform: scale(0.93);
     transition: 0.1s ease-in-out;
   }
 
+  /* -- Anchor Prop -- */
   &.anchor {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15), -2px -2px 5px #ffffff;
     &:hover {
@@ -48,7 +52,7 @@
       transform: scale(1.01);
     }
     &:active {
-      transform: scale(0.98) !important;
+      transform: scale(0.98);
       transition: 0.1s ease-in-out;
     }
   }

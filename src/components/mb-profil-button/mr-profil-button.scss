@@ -101,12 +101,21 @@ h2 {
     opacity: 1;
     .Profil {
       transform: translate(-55px, -45px);
+      &.active {
+        transform: translate(-55px, -45px) scale(0.93);
+      }
     }
     .Help {
       transform: translate(-73px, 0px);
+      &.active {
+        transform: translate(-73px, 0px) scale(0.93);
+      }
     }
     .LogOut {
       transform: translate(-55px, 45px);
+      &.active {
+        transform: translate(-55px, 45px) scale(0.93);
+      }
     }
   }
 }

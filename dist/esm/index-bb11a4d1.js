@@ -1609,4 +1609,4 @@ const patchDynamicImport = (base, orgScriptElm) => {
     }
 };
 
-export { patchEsm as a, bootstrapLazy as b, createEvent as c, h, patchBrowser as p, registerInstance as r };
+export { Host as H, patchEsm as a, bootstrapLazy as b, createEvent as c, h, patchBrowser as p, registerInstance as r };

@@ -92,11 +92,20 @@ h2 {
 .Wrapper:hover .OtherButtonWrapper .Profil {
   transform: translate(-55px, -45px);
 }
+.Wrapper:hover .OtherButtonWrapper .Profil.active {
+  transform: translate(-55px, -45px) scale(0.93);
+}
 .Wrapper:hover .OtherButtonWrapper .Help {
   transform: translate(-73px, 0px);
 }
+.Wrapper:hover .OtherButtonWrapper .Help.active {
+  transform: translate(-73px, 0px) scale(0.93);
+}
 .Wrapper:hover .OtherButtonWrapper .LogOut {
   transform: translate(-55px, 45px);
+}
+.Wrapper:hover .OtherButtonWrapper .LogOut.active {
+  transform: translate(-55px, 45px) scale(0.93);
 }
 
 /* --- Animations --- */

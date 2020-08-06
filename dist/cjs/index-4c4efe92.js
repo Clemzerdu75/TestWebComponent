@@ -1630,6 +1630,7 @@ const patchDynamicImport = (base, orgScriptElm) => {
     }
 };
 
+exports.Host = Host;
 exports.bootstrapLazy = bootstrapLazy;
 exports.createEvent = createEvent;
 exports.h = h;

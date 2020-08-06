@@ -1,4 +1,4 @@
-import { Component, h, Listen, Prop } from "@stencil/core";
+import { Component, h, Listen, Prop, Host } from "@stencil/core";
 /*
 
 This component is a simple one. It's just a fully responsive and adaptive button.
@@ -18,11 +18,10 @@ export class MrLittleButton {
         this.wrapper.style.border = `solid ${this.wrapper.offsetWidth * 0.1}px #f5f5f5`;
     }
     render() {
-        return (h("div", { class: `Wrapper ${this.anchor ? "anchor" : ""}`, ref: (el) => (this.wrapper = el) },
+        return (h(Host, { class: `LittleButtonWrapperWC ${this.anchor ? "anchor" : ""}`, ref: (el) => (this.wrapper = el) },
             h("slot", null)));
     }
     static get is() { return "mr-little-button"; }
-    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["mr-little-button.scss"]
     }; }

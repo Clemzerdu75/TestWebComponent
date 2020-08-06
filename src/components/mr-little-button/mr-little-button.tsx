@@ -1,4 +1,4 @@
-import { Component, h, Listen, Prop } from "@stencil/core";
+import { Component, h, Listen, Prop, Host } from "@stencil/core";
 
 /*
 
@@ -10,7 +10,9 @@ There is a lifecycle method and resize event handler to get the proper size of t
 @Component({
   tag: "mr-little-button",
   styleUrl: "mr-little-button.scss",
-  shadow: true,
+  shadow: false,
+  // shadow: scoped,
+  // scoped: true,
 })
 export class MrLittleButton {
   wrapper!: HTMLElement;
@@ -30,10 +32,17 @@ export class MrLittleButton {
 
   render() {
     return (
-      <div class={`Wrapper ${this.anchor ? "anchor" : ""}`} ref={(el) => (this.wrapper = el as HTMLElement)}>
+      <Host
+        class={`LittleButtonWrapperWC ${this.anchor ? "anchor" : ""}`}
+        ref={(el) => (this.wrapper = el as HTMLElement)}
+      >
+        {/* <div >
+         
+          
+        </div> */}
         {/* Slot is for the logo / image you want to put inside the button */}
         <slot></slot>
-      </div>
+      </Host>
     );
   }
 }
