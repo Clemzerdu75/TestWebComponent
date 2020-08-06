@@ -1,21 +1,13 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <link rel="modulepreload" href="/build/p-771337ed.js"><link rel="modulepreload" href="/build/p-b27cda9b.entry.js"><script type="module" data-stencil data-resources-url="/build/" data-stencil-namespace="teststencil">import{p as e,b as t}from"/build/p-771337ed.js";e().then(e=>t([["p-b27cda9b",[[1,"mr-profil-button"],[1,"mr-little-button",{levitate:[4]},[[9,"resize","handleResize"]]]]]],e));</script> <script nomodule="" src="/build/teststencil.js" data-stencil></script> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"> <style>body {
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <script type="module" src="/build/teststencil.esm.js" data-stencil></script> <script nomodule="" src="/build/teststencil.js" data-stencil></script> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"> <style>body {
       background: #f3f3f3;
       font-family: "Open Sans", "Sergoe UI", "Helvetica Neue", sans-serif;
       display: flex;
       justify-content: flex-end;
-    }</style><script>window.addEventListener("buttonToggle", (ev) => console.log(ev));</script></head> <body> <div style="width: 33vw;"> <mr-profil-button></mr-profil-button> <mr-little-button style="width: 100px; height: 100px;"></mr-little-button> <div style="width: 100%; height: 100px;"></div> <mr-little-button levitate="true" style="width: 100px; height: 100px;"></mr-little-button> <!-- <mr-little-button style="width: 10vw; height: 10vw;"></mr-little-button> --> </div> <script data-build="2020-08-06T08:07:37">if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  window.addEventListener('load', function() {
-  navigator.serviceWorker.register('/sw.js')
-    .then(function(reg) {
-    reg.onupdatefound = function() {
-      var installingWorker = reg.installing;
-      installingWorker.onstatechange = function() {
-      if (installingWorker.state === 'installed') {
-        window.dispatchEvent(new Event('swUpdate'))
-      }
-      }
-    }
-    })
-    .catch(function(err) { console.error('service worker error', err) });
+    }</style><script>window.addEventListener("buttonToggle", (ev) => console.log(ev));</script></head> <body> <div style="width: 33vw;"> <mr-profil-button></mr-profil-button> <mr-little-button style="width: 100px; height: 100px;"></mr-little-button> <div style="width: 100%; height: 100px;"></div> <mr-little-button anchor="true" style="width: 100px; height: 100px;"></mr-little-button> <!-- <mr-little-button style="width: 10vw; height: 10vw;"></mr-little-button> --> </div> <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+  if (registration) {
+    registration.unregister().then(function() { location.reload(true) });
+  }
   });
 }</script></body></html>

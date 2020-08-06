@@ -15,7 +15,7 @@ There is a lifecycle method and resize event handler to get the proper size of t
 export class MrLittleButton {
   wrapper!: HTMLElement;
 
-  @Prop() levitate: boolean = false;
+  @Prop() anchor: boolean = false;
 
   /* Resize handler */
   @Listen("resize", { target: "window" })
@@ -30,7 +30,7 @@ export class MrLittleButton {
 
   render() {
     return (
-      <div class={`Wrapper ${this.levitate ? "levitate" : ""}`} ref={(el) => (this.wrapper = el as HTMLElement)}>
+      <div class={`Wrapper ${this.anchor ? "anchor" : ""}`} ref={(el) => (this.wrapper = el as HTMLElement)}>
         {/* Slot is for the logo / image you want to put inside the button */}
         <slot></slot>
       </div>

@@ -1,1 +1,7 @@
-import{p as e,b as t}from"./p-771337ed.js";e().then(e=>t([["p-b27cda9b",[[1,"mr-profil-button"],[1,"mr-little-button",{levitate:[4]},[[9,"resize","handleResize"]]]]]],e));
+import { p as patchBrowser, b as bootstrapLazy } from './index-ebcebcac.js';
+import { g as globalScripts } from './app-globals-0f993ce5.js';
+
+patchBrowser().then(options => {
+  globalScripts();
+  return bootstrapLazy([["mr-little-button",[[1,"mr-little-button",{"anchor":[4]},[[9,"resize","handleResize"]]]]],["mr-profil-button",[[1,"mr-profil-button"]]]], options);
+});

@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MrLittleButton {
-        "levitate": boolean;
+        "anchor": boolean;
     }
     interface MrProfilButton {
     }
@@ -32,7 +32,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MrLittleButton {
-        "levitate"?: boolean;
+        "anchor"?: boolean;
     }
     interface MrProfilButton {
         "onButtonToggle"?: (event: CustomEvent<any>) => void;

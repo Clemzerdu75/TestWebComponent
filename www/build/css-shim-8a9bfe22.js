@@ -1,5 +1,3 @@
-'use strict';
-
 /*
  Stencil Client Platform v1.14.0 | MIT Licensed | https://stenciljs.com
  */

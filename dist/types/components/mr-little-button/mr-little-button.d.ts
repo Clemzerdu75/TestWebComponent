@@ -1,6 +1,6 @@
 export declare class MrLittleButton {
     wrapper: HTMLElement;
-    levitate: boolean;
+    anchor: boolean;
     handleResize(): void;
     componentDidLoad(): void;
     render(): any;
