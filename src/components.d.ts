@@ -6,13 +6,25 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface MrCard {
+    }
     interface MrLittleButton {
         "anchor": boolean;
     }
     interface MrProfilButton {
     }
+    interface MrTooltip {
+        "shortcut": string;
+        "text": string;
+    }
 }
 declare global {
+    interface HTMLMrCardElement extends Components.MrCard, HTMLStencilElement {
+    }
+    var HTMLMrCardElement: {
+        prototype: HTMLMrCardElement;
+        new (): HTMLMrCardElement;
+    };
     interface HTMLMrLittleButtonElement extends Components.MrLittleButton, HTMLStencilElement {
     }
     var HTMLMrLittleButtonElement: {
@@ -25,29 +37,47 @@ declare global {
         prototype: HTMLMrProfilButtonElement;
         new (): HTMLMrProfilButtonElement;
     };
+    interface HTMLMrTooltipElement extends Components.MrTooltip, HTMLStencilElement {
+    }
+    var HTMLMrTooltipElement: {
+        prototype: HTMLMrTooltipElement;
+        new (): HTMLMrTooltipElement;
+    };
     interface HTMLElementTagNameMap {
+        "mr-card": HTMLMrCardElement;
         "mr-little-button": HTMLMrLittleButtonElement;
         "mr-profil-button": HTMLMrProfilButtonElement;
+        "mr-tooltip": HTMLMrTooltipElement;
     }
 }
 declare namespace LocalJSX {
+    interface MrCard {
+    }
     interface MrLittleButton {
         "anchor"?: boolean;
     }
     interface MrProfilButton {
         "onButtonToggle"?: (event: CustomEvent<any>) => void;
     }
+    interface MrTooltip {
+        "shortcut"?: string;
+        "text"?: string;
+    }
     interface IntrinsicElements {
+        "mr-card": MrCard;
         "mr-little-button": MrLittleButton;
         "mr-profil-button": MrProfilButton;
+        "mr-tooltip": MrTooltip;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "mr-card": LocalJSX.MrCard & JSXBase.HTMLAttributes<HTMLMrCardElement>;
             "mr-little-button": LocalJSX.MrLittleButton & JSXBase.HTMLAttributes<HTMLMrLittleButtonElement>;
             "mr-profil-button": LocalJSX.MrProfilButton & JSXBase.HTMLAttributes<HTMLMrProfilButtonElement>;
+            "mr-tooltip": LocalJSX.MrTooltip & JSXBase.HTMLAttributes<HTMLMrTooltipElement>;
         }
     }
 }

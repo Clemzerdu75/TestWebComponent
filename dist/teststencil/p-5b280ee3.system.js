@@ -1,1 +1,0 @@
-System.register(["./p-1fd9ab10.system.js"],(function(){"use strict";var t,e;return{setters:[function(n){t=n.p;e=n.b}],execute:function(){t().then((function(t){return e([["p-6902f04b.system",[[1,"mr-profil-button"],[4,"mr-little-button",{anchor:[4]},[[9,"resize","handleResize"]]]]]],t)}))}}}));

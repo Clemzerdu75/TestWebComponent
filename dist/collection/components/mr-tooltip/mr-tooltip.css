@@ -1,0 +1,29 @@
+:host {
+  display: block;
+}
+
+.MrToolTipWrapperWC {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
+.MrToolTipWrapperWC .ToolTip {
+  position: absolute;
+  display: none;
+  z-index: 20;
+  bottom: -70%;
+  min-width: 85px;
+  width: fit-content;
+  max-width: 300px;
+  text-align: center;
+  padding: 5px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+.MrToolTipWrapperWC:hover .ToolTip {
+  display: block;
+}
+.MrToolTipWrapperWC:hover .ToolTip:hover {
+  display: none;
+}
