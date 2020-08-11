@@ -1,5 +1,8 @@
 import { Component, Host, h, Prop } from "@stencil/core";
 export class MrTooltip {
+    constructor() {
+        this.position = "bottom";
+    }
     componentDidRender() {
         const size = this.wrapper.offsetWidth * 0.01 < 0.8
             ? 0.8 // min size
@@ -7,6 +10,22 @@ export class MrTooltip {
                 ? 1 // max size
                 : this.wrapper.offsetWidth * 0.01;
         this.content.style.fontSize = `${size}em`;
+        console.log("c", this.content.offsetWidth);
+        console.log("w", this.wrapper.offsetWidth);
+        switch (this.position) {
+            case "bottom":
+                this.content.style.bottom = `-${(this.content.offsetHeight / this.wrapper.offsetHeight) * this.wrapper.offsetHeight + 30}px`;
+                break;
+            case "left":
+                this.content.style.left = `-${(this.content.offsetWidth / this.wrapper.offsetWidth) * this.wrapper.offsetWidth + 20}px`;
+                break;
+            case "top":
+                this.content.style.top = `-${(this.content.offsetHeight / this.wrapper.offsetHeight) * this.wrapper.offsetHeight + 35}px`;
+                break;
+            case "right":
+                this.content.style.right = `-${(this.content.offsetWidth / this.wrapper.offsetWidth) * this.wrapper.offsetWidth + 20}px`;
+                break;
+        }
     }
     render() {
         return (h(Host, { ref: (el) => (this.wrapper = el), class: "MrToolTipWrapperWC" },
@@ -60,6 +79,24 @@ export class MrTooltip {
             },
             "attribute": "shortcut",
             "reflect": false
+        },
+        "position": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "position",
+            "reflect": false,
+            "defaultValue": "\"bottom\""
         }
     }; }
 }

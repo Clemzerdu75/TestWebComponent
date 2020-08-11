@@ -3,6 +3,7 @@ export declare class MrTooltip {
     content: HTMLElement;
     text: string;
     shortcut: string;
+    position: string;
     componentDidRender(): void;
     render(): any;
 }

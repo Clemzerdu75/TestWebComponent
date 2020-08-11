@@ -14,6 +14,7 @@ export namespace Components {
     interface MrProfilButton {
     }
     interface MrTooltip {
+        "position": string;
         "shortcut": string;
         "text": string;
     }
@@ -60,6 +61,7 @@ declare namespace LocalJSX {
         "onButtonToggle"?: (event: CustomEvent<any>) => void;
     }
     interface MrTooltip {
+        "position"?: string;
         "shortcut"?: string;
         "text"?: string;
     }

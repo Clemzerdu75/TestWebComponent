@@ -75,18 +75,21 @@ h2 {
       @extend .MixinButton;
       transition: transform 0.2s ease-in-out;
       transition-delay: 0.2s;
+      z-index: 3;
     }
 
     .Help {
       @extend .MixinButton;
       transition: transform 0.3s ease-in-out;
       transition-delay: 0.2s;
+      z-index: 2;
     }
 
     .LogOut {
       @extend .MixinButton;
       transition: transform 0.4s ease-in-out;
       transition-delay: 0.2s;
+      z-index: 1;
     }
   }
 

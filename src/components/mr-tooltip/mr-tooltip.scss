@@ -6,24 +6,26 @@
   width: fit-content;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   .ToolTip {
     position: absolute;
-    display: none;
-    z-index: 20;
-    bottom: -70%;
+    display: block;
+    opacity: 0;
+    z-index: -1;
     min-width: 85px;
-    width: fit-content;
     max-width: 300px;
     text-align: center;
     padding: 5px 20px;
     background: rgba(0, 0, 0, 0.2);
     color: white;
+    transition: 0.2 ease-in-out;
   }
 
   &:hover {
     .ToolTip {
-      display: block;
+      opacity: 1;
+      z-index: 1000;
       &:hover {
         display: none;
       }
