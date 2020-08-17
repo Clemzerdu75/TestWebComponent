@@ -1,1 +1,0 @@
-System.register(["./p-dd268c96.system.js"],(function(t){"use strict";var r,n,e;return{setters:[function(t){r=t.r;n=t.h;e=t.H}],execute:function(){var s=":host{display:block}";var u=function(){function t(t){r(this,t)}t.prototype.render=function(){return n(e,null,n("slot",null))};return t}();t("mr_card",u);u.style=s}}}));

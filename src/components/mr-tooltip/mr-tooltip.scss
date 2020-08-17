@@ -1,6 +1,8 @@
 :host {
   display: block;
 }
+
+/* --- Wrapper --- */
 .MrToolTipWrapperWC {
   position: relative;
   width: fit-content;
@@ -8,6 +10,7 @@
   justify-content: center;
   align-items: center;
 
+  /* --- Tooltip --- */
   .ToolTip {
     position: absolute;
     display: block;

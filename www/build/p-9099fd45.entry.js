@@ -1,1 +1,0 @@
-import{r,h as s,H as l}from"./p-04f0fb52.js";class o{constructor(s){r(this,s)}render(){return s(l,null,s("slot",null))}}o.style=":host{display:block}";export{o as mr_card}
