@@ -26,16 +26,6 @@ export class MrTooltip {
 
   /* --- Styling of the tooltip after the render --- */
   componentDidRender() {
-    // Handle  font size
-    const size =
-      this.wrapper.offsetWidth * 0.01 < 0.8
-        ? 0.8 // min size
-        : this.wrapper.offsetWidth * 0.01 > 1
-        ? 1 // max size
-        : this.wrapper.offsetWidth * 0.01;
-
-    this.content.style.fontSize = `${size}em`;
-
     // Handle placement according to position
     switch (this.position) {
       case "bottom":

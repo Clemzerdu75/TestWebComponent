@@ -18,7 +18,7 @@ class MrCard {
 }
 MrCard.style = mrCardCss;
 
-const mrTooltipCss = ":host{display:block}.MrToolTipWrapperWC{position:relative;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;}.MrToolTipWrapperWC .ToolTip{position:absolute;display:block;opacity:0;z-index:-1;min-width:85px;max-width:300px;text-align:center;padding:5px 20px;background:rgba(0, 0, 0, 0.2);color:white;-webkit-transition:0.2 ease-in-out;transition:0.2 ease-in-out}.MrToolTipWrapperWC:hover .ToolTip{opacity:1;z-index:1000}.MrToolTipWrapperWC:hover .ToolTip:hover{display:none}";
+const mrTooltipCss = ":host{display:block}.MrToolTipWrapperWC{position:relative;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;}.MrToolTipWrapperWC .ToolTip{position:absolute;display:block;opacity:0;z-index:-1;min-width:85px;max-width:300px;text-align:center;font-size:0.8rem;padding:5px 20px;background:rgba(0, 0, 0, 0.2);color:white;-webkit-transition:0.2 ease-in-out;transition:0.2 ease-in-out}.MrToolTipWrapperWC:hover .ToolTip{opacity:1;z-index:1000}.MrToolTipWrapperWC:hover .ToolTip:hover{display:none}";
 
 /*   The tooltip component works as a wrapper for the component that need
   to be have some information displayed.
@@ -35,13 +35,6 @@ class MrTooltip {
     }
     /* --- Styling of the tooltip after the render --- */
     componentDidRender() {
-        // Handle  font size
-        const size = this.wrapper.offsetWidth * 0.01 < 0.8
-            ? 0.8 // min size
-            : this.wrapper.offsetWidth * 0.01 > 1
-                ? 1 // max size
-                : this.wrapper.offsetWidth * 0.01;
-        this.content.style.fontSize = `${size}em`;
         // Handle placement according to position
         switch (this.position) {
             case "bottom":
