@@ -1,0 +1,17 @@
+{
+  "entries": [
+    "./components/mb-profil-button/mr-profil-button.js",
+    "./components/mr-card/mr-card.js",
+    "./components/mr-little-button/mr-little-button.js",
+    "./components/mr-simple-input/mr-simple-input.js",
+    "./components/mr-tooltip/mr-tooltip.js",
+    "./components/x-counter/x-counter.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.14.0",
+    "typescriptVersion": "3.9.3"
+  },
+  "collections": [],
+  "bundles": []
+}
