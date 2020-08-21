@@ -9,7 +9,6 @@ export namespace Components {
     interface MrCard {
         "anchor": boolean;
         "data": string;
-        "movable": boolean;
     }
     interface MrLittleButton {
         "anchor": boolean;
@@ -17,6 +16,7 @@ export namespace Components {
     interface MrProfilButton {
     }
     interface MrSimpleInput {
+        "isError": Error;
     }
     interface MrTooltip {
         "position": string;
@@ -76,7 +76,6 @@ declare namespace LocalJSX {
     interface MrCard {
         "anchor"?: boolean;
         "data"?: string;
-        "movable"?: boolean;
     }
     interface MrLittleButton {
         "anchor"?: boolean;
@@ -85,6 +84,8 @@ declare namespace LocalJSX {
         "onButtonToggle"?: (event: CustomEvent<any>) => void;
     }
     interface MrSimpleInput {
+        "isError"?: Error;
+        "onInputChange"?: (event: CustomEvent<any>) => void;
     }
     interface MrTooltip {
         "position"?: string;

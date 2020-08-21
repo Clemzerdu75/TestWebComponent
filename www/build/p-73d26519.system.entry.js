@@ -1,1 +1,0 @@
-System.register(["./p-dd268c96.system.js"],(function(t){"use strict";var e,r;return{setters:[function(t){e=t.r;r=t.h}],execute:function(){var n=":host{display:block}";var s=function(){function t(t){e(this,t)}t.prototype.render=function(){return r("input",{placeholder:"First name",name:"firstName"})};return t}();t("mr_simple_input",s);s.style=n}}}));

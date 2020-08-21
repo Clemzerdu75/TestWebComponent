@@ -1,1 +1,0 @@
-import{r,h as s}from"./p-04f0fb52.js";class t{constructor(s){r(this,s)}render(){return s("input",{placeholder:"First name",name:"firstName"})}}t.style=":host{display:block}";export{t as mr_simple_input}

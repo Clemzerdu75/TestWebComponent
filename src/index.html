@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/teststencil.esm.js"></script>
-    <script nomodule src="/build/teststencil.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <style>
-    body {
-      background: #f3f3f3;
-      font-family: "Open Sans", "Sergoe UI", "Helvetica Neue", sans-serif;
-      display: flex;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-    }
-  </style>
-  <script>
-    window.addEventListener("valueChange", (ev) => console.log(ev));
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
 
-    const handleSubmit = () => {
-      console.log(document.getElementById("test").value);
-    };
-  </script>
-  <body>
-    <mr-tooltip text="test test">
-      <mr-card></mr-card>
-    </mr-tooltip>
-    <div style="width: 100px; height: 3px;"></div>
-    <mr-card anchor="false" movable="true"></mr-card>
-    <x-counter></x-counter>
-  </body>
+  <script type="module" src="/build/teststencil.esm.js"></script>
+  <script nomodule src="/build/teststencil.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet" />
+</head>
+<style>
+  body {
+    background: #f3f3f3;
+    font-family: "Open Sans", "Sergoe UI", "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+<script>
+  window.addEventListener("valueChange", (ev) => console.log(ev));
+  window.addEventListener("inputChange", (ev) => checkInput(ev.detail));
+
+  let isError = { status: false, message: "" }
+  const handleSubmit = () => {
+  };
+
+  focusMethod = function getFocus() {
+    document.getElementById("myTextField").focus();
+  }
+  const checkInput = (data) => {
+    if (/\d/.test(data.value))
+      isError = { status: true, message: "Ce champs ne peut contenir que des nombres" }
+    else isError = { status: false, message: "" }
+    document.getElementById("test").isError = isError;
+  }
+</script>
+
+<body>
+
+  <mr-simple-input id="test"></mr-simple-input>
+  <br />
+</body>
+
 </html>
