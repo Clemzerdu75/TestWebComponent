@@ -12,6 +12,7 @@ petit popup qui prévient que c'est pas bon
 interface Error {
   status: boolean,
   message: string,
+  priority: boolean,
 }
 @Component({
   tag: "mr-simple-input",
@@ -20,13 +21,17 @@ interface Error {
 })
 export class MrSimpleInput {
   private textInput?: HTMLInputElement;
+  private labelInput?: HTMLElement;
 
   @State() isActive: boolean = false
   @State() isDisable: boolean = false
   @State() rawValue: string
   @State() value: string
 
-  @Prop() isError: Error = { status: false, message: "Ce champs ne peut pas contenir de nombres" }
+  @Prop() isError: Error = { status: false, message: "", priority: false }
+  @Prop() name: string
+  @Prop() placeholder: string
+  @Prop() type: string = "text"
 
   @Event() inputChange: EventEmitter
 
@@ -49,15 +54,23 @@ export class MrSimpleInput {
 
   handleFocus() {
     this.isActive = true;
+    if (this.textInput.value.length && !this.isError.status) {
+      this.labelInput.style.color = "#42c19a";
+    }
+    else {
+      this.labelInput.style.color = "rgba(0,0,0,0.8)";
+    }
   }
 
   handleBlur() {
     this.isActive = false;
     if (this.textInput.value.length && !this.isError.status) {
-      document.getElementsByTagName("label")[0].style.color = "#42c19a";
+      this.labelInput.style.color = "#42c19a";
     }
-    else {
-      document.getElementsByTagName("label")[0].style.color = "rgba(0,0,0,0.8)";
+    else if (this.textInput.value.length && this.isError.status) {
+      this.isError.priority = true;
+    } else {
+      this.labelInput.style.color = "rgba(0,0,0,0.8)";
     }
   }
 
@@ -68,23 +81,27 @@ export class MrSimpleInput {
 
   render() {
     return (
-      <Host class="test">
-        <div class={`MR-input-wrapper-WC ${this.isActive && !this.isError.status ? "isFocus" : ""} ${this.isError.status ? "isError" : ""}`}>
-          <label>Entreprise</label>
+      <Host class="MR-input-global-wrapper-WC">
+        <div class={`MR-input-wrapper-WC ${this.isActive && !this.isError.status ? "isFocus" : ""}
+          ${this.isError.status && this.isError.priority ?
+            "isError" :
+            this.isError.status && !this.isError.priority && !this.isActive ? "isError" : this.isError.status && this.isError.priority ? "isInvalid" : ""}`}>
+          <label ref={(el) => this.labelInput = el as HTMLElement}>{this.name}</label>
           <input
             ref={(el) => this.textInput = el as HTMLInputElement}
             onFocus={() => this.isActive = true}
             onBlur={this.handleBlur}
             onInput={(event) => this.handleChange(event)}
-            value={this.value}
             class={`MR-input-WC ${this.isError ? "error" : ""}`}
-            placeholder="Moben&Rooster"
-            name="bloublou" />
+            placeholder={this.placeholder}
+            name={this.name}
+            type={this.type}
+            value={this.value} />
 
         </div>
         {
           this.isError.message.length && this.isError.status ?
-            <p>{this.isError.message}</p> : null
+            <p class={this.isError.priority ? "invalid" : ""}>{this.isError.message}</p> : null
         }
       </Host>);
   }

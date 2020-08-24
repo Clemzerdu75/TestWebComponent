@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+.MR-card-wrapper-WC {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 20px;
+  background: #f1f1f1;
+  border-radius: 7px;
+  box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.15);
+  transition: 0.2s ease-in-out;
+}
+.MR-card-wrapper-WC:hover {
+  box-shadow: 0px 2px 60px rgba(0, 0, 0, 0.15);
+}
+.MR-card-wrapper-WC.anchor {
+  background: #f3f3f3;
+  box-shadow: 4px 4px 8px #d6d6d6, -4px -4px 8px #ffffff;
+}

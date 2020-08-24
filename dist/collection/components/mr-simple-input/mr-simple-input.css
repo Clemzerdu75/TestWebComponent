@@ -1,0 +1,112 @@
+:host {
+  display: block;
+}
+
+.MR-input-global-wrapper-WC {
+  position: relative;
+  height: 2rem;
+  margin-bottom: 2rem;
+  width: 50vw;
+}
+
+.MR-input-wrapper-WC {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.MR-input-wrapper-WC::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: 50% 50%;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: transform 250ms;
+}
+.MR-input-wrapper-WC label {
+  width: 50%;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(0, 0, 0, 0.8);
+  transition: 0.4s ease-in-out;
+}
+.MR-input-wrapper-WC.isFocus::after {
+  animation: launch 0.2s ease-in-out;
+  transform: translateX(-50%) scaleX(1);
+  background-color: #42c19a;
+}
+.MR-input-wrapper-WC.isError::after {
+  background-color: #EF5067;
+}
+.MR-input-wrapper-WC.isInvalid::after {
+  background-color: #f5bd64;
+}
+
+.MR-input-WC {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.2rem;
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p {
+  animation: error 0.2s ease-in-out;
+  color: #EF5067;
+  font-size: 0.8rem;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-bottom: 2rem;
+}
+p.invalid {
+  color: #f5bd64;
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #f3f3f3 inset !important;
+}
+
+@keyframes launch {
+  0% {
+    width: 100%;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    width: 70%;
+    opacity: 0.4;
+    background-color: #42c19a;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+    background-color: #42c19a;
+  }
+}
+@keyframes error {
+  from {
+    margin-left: -10px;
+    opacity: 0;
+  }
+  to {
+    margin-left: 0;
+    opacity: 1;
+  }
+}

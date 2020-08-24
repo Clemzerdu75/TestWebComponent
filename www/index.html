@@ -1,4 +1,4 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <script type="module" src="/build/teststencil.esm.js" data-stencil></script> <script nomodule="" src="/build/teststencil.js" data-stencil></script> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"> <style>body {
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <link rel="modulepreload" href="/build/p-5ed4da4e.entry.js"><link rel="modulepreload" href="/build/p-9cd44316.js"><script type="module" data-stencil data-resources-url="/build/" data-stencil-namespace="teststencil">import{p as e,b as r}from"/build/p-9cd44316.js";e().then(e=>r([["p-2cc85fd1",[[1,"mr-profil-button"]]],["p-5ed4da4e",[[4,"mr-card",{data:[1],anchor:[4]}],[0,"mr-simple-input",{isError:[16],name:[1],placeholder:[1],type:[1],isActive:[32],isDisable:[32],rawValue:[32],value:[32]}]]],["p-62e39d78",[[1,"x-counter",{_value:[32]}]]],["p-7ee2eb13",[[4,"mr-little-button",{anchor:[4]},[[9,"resize","handleResize"]]],[4,"mr-tooltip",{text:[1],shortcut:[1],position:[1]}]]]],e));</script> <script nomodule="" src="/build/teststencil.js" data-stencil></script> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"> <style>body {
     background: #f3f3f3;
     font-family: "Open Sans", "Sergoe UI", "Helvetica Neue", sans-serif;
     display: flex;
@@ -9,7 +9,7 @@
   }</style><script>window.addEventListener("valueChange", (ev) => console.log(ev));
   window.addEventListener("inputChange", (ev) => checkInput(ev.detail));
 
-  let isError = { status: false, message: "" }
+  let isError = { status: false, message: "", priority: false }
   const handleSubmit = () => {
   };
 
@@ -17,15 +17,29 @@
     document.getElementById("myTextField").focus();
   }
   const checkInput = (data) => {
-    if (/\d/.test(data.value))
-      isError = { status: true, message: "Ce champs ne peut contenir que des nombres" }
+    let inputArray = document.getElementsByTagName("mr-simple-input");
+
+    if (/\d/.test(data.value) && data.name !== "Telephone")
+      isError = { status: true, message: "Ce champs ne peut contenir que des nombres", priority: false }
+    else if (data.name === "Telephone" && data.value.length < 10) isError = { status: true, message: "Le numéro de téléphone n'est pas valide", priority: false }
     else isError = { status: false, message: "" }
-    document.getElementById("test").isError = isError;
-  }</script></head> <body> <mr-simple-input id="test"></mr-simple-input> <br> <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  // auto-unregister service worker during dev mode
-  navigator.serviceWorker.getRegistration().then(function(registration) {
-  if (registration) {
-    registration.unregister().then(function() { location.reload(true) });
-  }
+
+    for (i = 0; i < inputArray.length; i++) {
+      if (inputArray[i].name === data.name) inputArray[i].isError = isError
+    }
+  }</script></head> <body> <mr-card style="width: 80vw; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;"> <mr-simple-input placeholder="Moben&amp;Rooster" name="Entreprise"></mr-simple-input> <mr-simple-input name="Nom" placeholder="AppleSeed"></mr-simple-input> <mr-simple-input name="Prénom" placeholder="John"></mr-simple-input> <mr-simple-input name="Courriel" placeholder="example@example.fr" type="email"></mr-simple-input> <mr-simple-input name="Telephone" placeholder="0638101305" type="number"></mr-simple-input> </mr-card> <script data-build="2020-08-24T11:50:32">if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function() {
+  navigator.serviceWorker.register('/sw.js')
+    .then(function(reg) {
+    reg.onupdatefound = function() {
+      var installingWorker = reg.installing;
+      installingWorker.onstatechange = function() {
+      if (installingWorker.state === 'installed') {
+        window.dispatchEvent(new Event('swUpdate'))
+      }
+      }
+    }
+    })
+    .catch(function(err) { console.error('service worker error', err) });
   });
 }</script></body></html>

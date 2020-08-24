@@ -26,7 +26,7 @@
   window.addEventListener("valueChange", (ev) => console.log(ev));
   window.addEventListener("inputChange", (ev) => checkInput(ev.detail));
 
-  let isError = { status: false, message: "" }
+  let isError = { status: false, message: "", priority: false }
   const handleSubmit = () => {
   };
 
@@ -34,17 +34,28 @@
     document.getElementById("myTextField").focus();
   }
   const checkInput = (data) => {
-    if (/\d/.test(data.value))
-      isError = { status: true, message: "Ce champs ne peut contenir que des nombres" }
+    let inputArray = document.getElementsByTagName("mr-simple-input");
+
+    if (/\d/.test(data.value) && data.name !== "Telephone")
+      isError = { status: true, message: "Ce champs ne peut contenir que des nombres", priority: false }
+    else if (data.name === "Telephone" && data.value.length < 10) isError = { status: true, message: "Le numéro de téléphone n'est pas valide", priority: false }
     else isError = { status: false, message: "" }
-    document.getElementById("test").isError = isError;
+
+    for (i = 0; i < inputArray.length; i++) {
+      if (inputArray[i].name === data.name) inputArray[i].isError = isError
+    }
   }
 </script>
 
 <body>
-
-  <mr-simple-input id="test"></mr-simple-input>
-  <br />
+  <mr-card
+    style="width: 80vw; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <mr-simple-input placeholder="Moben&Rooster" name="Entreprise"></mr-simple-input>
+    <mr-simple-input name="Nom" placeholder="AppleSeed"></mr-simple-input>
+    <mr-simple-input name="Prénom" placeholder="John"></mr-simple-input>
+    <mr-simple-input name="Courriel" placeholder="example@example.fr" type="email"></mr-simple-input>
+    <mr-simple-input name="Telephone" placeholder="0638101305" type="number"></mr-simple-input>
+  </mr-card>
 </body>
 
 </html>

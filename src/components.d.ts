@@ -17,6 +17,9 @@ export namespace Components {
     }
     interface MrSimpleInput {
         "isError": Error;
+        "name": string;
+        "placeholder": string;
+        "type": string;
     }
     interface MrTooltip {
         "position": string;
@@ -85,7 +88,10 @@ declare namespace LocalJSX {
     }
     interface MrSimpleInput {
         "isError"?: Error;
+        "name"?: string;
         "onInputChange"?: (event: CustomEvent<any>) => void;
+        "placeholder"?: string;
+        "type"?: string;
     }
     interface MrTooltip {
         "position"?: string;

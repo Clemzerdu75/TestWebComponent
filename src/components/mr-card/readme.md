@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type      | Default     |
-| --------- | --------- | ----------- | --------- | ----------- |
-| `anchor`  | `anchor`  |             | `boolean` | `true`      |
-| `data`    | `data`    |             | `string`  | `undefined` |
-| `movable` | `movable` |             | `boolean` | `false`     |
+| Property | Attribute | Description | Type      | Default     |
+| -------- | --------- | ----------- | --------- | ----------- |
+| `anchor` | `anchor`  |             | `boolean` | `true`      |
+| `data`   | `data`    |             | `string`  | `undefined` |
 
 
 ----------------------------------------------
